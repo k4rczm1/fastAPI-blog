@@ -1,1 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    {% if title %}
+    <title>Blog | {{ title }}</title>
+    {% else %}
+    <title>Blog</title>
+    {% endif %}
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="container header-row">
+        <div class="brand">
+          <a href="{{ url_for('home') }}">Blog</a>
+        </div>
+
+        <nav class="main-nav">
+          <a href="{{ url_for('home') }}">Home</a>
+        </nav>
+
+        <div class="user-actions">
+          <a href="#" class="btn ghost">Login</a>
+          <a href="#" class="btn primary">Register</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="container main-grid">
+      <section class="content-area">
+        {% block content %}{% endblock content %}
+      </section>
+
+      <aside class="side-panel">
+        <h3>Sidebar</h3>
+
+        <p>Content</p>
+
+        <ul>
+          <li>Posts</li>
+          <li>News</li>
+          <li>Release</li>
+        </ul>
+      </aside>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>© <span id="year"></span> Michał Karczmarczyk</p>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
 
