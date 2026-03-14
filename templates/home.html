@@ -1,1 +1,38 @@
+{% extends "layout.html" %} {% block content %} {% for post in posts %}
+
+<article class="post-card">
+  <div class="post-layout">
+    <img
+      class="avatar"
+      src="{{ post.author.image_path }}"
+      alt="{{ post.author.username }}"
+      width="64"
+      height="64"
+      loading="lazy"
+    />
+
+    <div class="post-body">
+      <div class="post-meta">
+        <a
+          class="author"
+          href="{{ url_for('user_posts', user_id=post.author.id) }}"
+        >
+          {{ post.author.username }}
+        </a>
+
+        <span class="date"> {{ post.date_posted.strftime('%B %d, %Y') }} </span>
+      </div>
+
+      <h2 class="post-title">
+        <a href="{{ url_for('post_page', post_id=post.id) }}">
+          {{ post.title }}
+        </a>
+      </h2>
+
+      <p class="post-text">{{ post.content }}</p>
+    </div>
+  </div>
+</article>
+
+{% endfor %} {% endblock content %}
 
