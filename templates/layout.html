@@ -10,7 +10,11 @@
     <title>Blog</title>
     {% endif %}
 
-    <link rel="stylesheet" href="style.css" />
+        <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', path='css/main.css') }}"
+    />
   </head>
 
   <body>
