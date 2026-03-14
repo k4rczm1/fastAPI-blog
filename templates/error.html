@@ -1,1 +1,10 @@
+{% extends "layout.html" %} {% block content %}
+
+<div class="error-box">
+  <h1>Error {{ status_code }}</h1>
+
+  <p>{{ message }}</p>
+</div>
+
+{% endblock content %}
 
